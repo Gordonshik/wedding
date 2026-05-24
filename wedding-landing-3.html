@@ -1,473 +1,560 @@
-
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Илья & Рашида — 10 июля 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: oklch(96% 0.02 80);
-      --surface: oklch(100% 0 0);
-      --fg: oklch(28% 0.02 65);
-      --muted: oklch(50% 0.015 65);
-      --border: oklch(88% 0.008 80);
-      --accent: oklch(55% 0.12 35);
-      --accent-warm: oklch(58% 0.14 25);
-      --sage: oklch(60% 0.08 140);
-      --terracotta: oklch(55% 0.15 25);
-      
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'DM Sans', -apple-system, system-ui, sans-serif;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font: 18px/1.6 var(--font-body);
-      background: var(--bg);
-      color: var(--fg);
-      -webkit-font-smoothing: antialiased;
-    }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Илья & Рашида — 10 июля 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: oklch(96% 0.02 80);
+        --surface: oklch(100% 0 0);
+        --fg: oklch(28% 0.02 65);
+        --muted: oklch(50% 0.015 65);
+        --border: oklch(88% 0.008 80);
+        --accent: oklch(55% 0.12 35);
+        --accent-warm: oklch(58% 0.14 25);
+        --sage: oklch(60% 0.08 140);
+        --terracotta: oklch(55% 0.15 25);
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+        --font-display: "Cormorant Garamond", Georgia, serif;
+        --font-body: "DM Sans", -apple-system, system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font: 18px/1.6 var(--font-body);
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+      }
 
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 60px 24px;
-      background: 
-        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.6)),
-        url('mpk3bqex-Adobe-Express---IMG_5554-_1_.gif') center/cover no-repeat;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero .hero-pretitle,
-    .hero .hero-title,
-    .hero .hero-date,
-    .hero .hero-venue {
-      color: #fff;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q35 15 30 25 Q25 15 30 5' fill='none' stroke='%23c9b8a5' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E") repeat;
-      opacity: 0.4;
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-pretitle {
-      font: 12px/1 var(--font-body);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-    .hero-title {
-      font: 800 72px/1.1 var(--font-display);
-      color: var(--fg);
-      margin-bottom: 8px;
-      font-style: italic;
-    }
-    .hero-title span {
-      display: block;
-      font-size: 28px;
-      font-weight: 400;
-      font-style: normal;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-      margin-top: 12px;
-    }
-    .hero-date {
-      font: 500 24px/1 var(--font-display);
-      color: var(--accent);
-      margin-top: 32px;
-      padding: 12px 32px;
-      border: 1px solid var(--accent);
-      border-radius: 50px;
-    }
-    .hero-venue {
-      font: 16px/1 var(--font-body);
-      color: var(--muted);
-      margin-top: 20px;
-    }
-    .scroll-hint {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--muted);
-      font: 11px/1 var(--font-body);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-    /* Sections */
-    section {
-      padding: 100px 0;
-    }
-    .section-title {
-      font: 600 42px/1.2 var(--font-display);
-      text-align: center;
-      margin-bottom: 16px;
-      color: var(--fg);
-    }
-    .section-subtitle {
-      font: 15px/1.5 var(--font-body);
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 60px;
-    }
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 60px 24px;
+        background:
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6)),
+          url("https://drive.google.com/file/d/18QSBjR0gDOXJJiZNEZQmvlnMldpv282f/view?usp=drive_link")
+            center/cover no-repeat;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero .hero-pretitle,
+      .hero .hero-title,
+      .hero .hero-date,
+      .hero .hero-venue {
+        color: #fff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q35 15 30 25 Q25 15 30 5' fill='none' stroke='%23c9b8a5' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E")
+          repeat;
+        opacity: 0.4;
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+      .hero-pretitle {
+        font: 12px/1 var(--font-body);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 20px;
+      }
+      .hero-title {
+        font: 800 72px/1.1 var(--font-display);
+        color: var(--fg);
+        margin-bottom: 8px;
+        font-style: italic;
+      }
+      .hero-title span {
+        display: block;
+        font-size: 28px;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 0.15em;
+        color: var(--muted);
+        margin-top: 12px;
+      }
+      .hero-date {
+        font: 500 24px/1 var(--font-display);
+        color: var(--accent);
+        margin-top: 32px;
+        padding: 12px 32px;
+        border: 1px solid var(--accent);
+        border-radius: 50px;
+      }
+      .hero-venue {
+        font: 16px/1 var(--font-body);
+        color: var(--muted);
+        margin-top: 20px;
+      }
+      .scroll-hint {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--muted);
+        font: 11px/1 var(--font-body);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(8px);
+        }
+      }
 
-    /* Love Story */
-    .story {
-      background: var(--surface);
-    }
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .story-text p {
-      font: 18px/1.7 var(--font-body);
-      color: var(--fg);
-      margin-bottom: 20px;
-    }
-    .story-text p:first-of-type::first-letter {
-      font: 600 56px/0.8 var(--font-display);
-      float: left;
-      margin-right: 12px;
-      margin-top: 8px;
-      color: var(--accent);
-    }
+      /* Sections */
+      section {
+        padding: 100px 0;
+      }
+      .section-title {
+        font: 600 42px/1.2 var(--font-display);
+        text-align: center;
+        margin-bottom: 16px;
+        color: var(--fg);
+      }
+      .section-subtitle {
+        font: 15px/1.5 var(--font-body);
+        text-align: center;
+        color: var(--muted);
+        margin-bottom: 60px;
+      }
 
-    /* Timeline / Program */
-    .program {
-      background: var(--bg);
-    }
-    .timeline {
-      position: relative;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 24px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-    .timeline-item {
-      display: flex;
-      gap: 32px;
-      margin-bottom: 48px;
-      position: relative;
-    }
-    .timeline-dot {
-      width: 50px;
-      height: 50px;
-      background: var(--surface);
-      border: 2px solid var(--accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font: 600 16px/1 var(--font-body);
-      color: var(--accent);
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-    }
-    .timeline-content h3 {
-      font: 500 22px/1.3 var(--font-display);
-      margin-bottom: 8px;
-    }
-    .timeline-content p {
-      font: 16px/1.6 var(--font-body);
-      color: var(--muted);
-    }
-    .timeline-time {
-      font: 500 14px/1 var(--font-body);
-      color: var(--accent-warm);
-      margin-bottom: 4px;
-    }
+      /* Love Story */
+      .story {
+        background: var(--surface);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .story-text p {
+        font: 18px/1.7 var(--font-body);
+        color: var(--fg);
+        margin-bottom: 20px;
+      }
+      .story-text p:first-of-type::first-letter {
+        font: 600 56px/0.8 var(--font-display);
+        float: left;
+        margin-right: 12px;
+        margin-top: 8px;
+        color: var(--accent);
+      }
 
-    /* RSVP */
-    .rsvp {
-      background: 
-        radial-gradient(ellipse at 50% 100%, oklch(90% 0.03 80) 0%, transparent 60%),
-        var(--surface);
-    }
-    .rsvp-form {
-      max-width: 500px;
-      margin: 0 auto;
-      background: var(--bg);
-      padding: 48px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-    }
-    .form-group {
-      margin-bottom: 24px;
-    }
-    .form-group label {
-      display: block;
-      font: 500 14px/1 var(--font-body);
-      color: var(--fg);
-      margin-bottom: 8px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 18px;
-      font: 16px/1 var(--font-body);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface);
-      color: var(--fg);
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    .form-group textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 40px;
-      font: 600 16px/1 var(--font-body);
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--surface);
-      width: 100%;
-    }
-    .btn-primary:hover {
-      background: var(--accent-warm);
-      transform: translateY(-2px);
-    }
-    .form-note {
-      font: 13px/1.5 var(--font-body);
-      color: var(--muted);
-      text-align: center;
-      margin-top: 20px;
-    }
+      /* Timeline / Program */
+      .program {
+        background: var(--bg);
+      }
+      .timeline {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+      }
+      .timeline-item {
+        display: flex;
+        gap: 32px;
+        margin-bottom: 48px;
+        position: relative;
+      }
+      .timeline-dot {
+        width: 50px;
+        height: 50px;
+        background: var(--surface);
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 600 16px/1 var(--font-body);
+        color: var(--accent);
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .timeline-content h3 {
+        font: 500 22px/1.3 var(--font-display);
+        margin-bottom: 8px;
+      }
+      .timeline-content p {
+        font: 16px/1.6 var(--font-body);
+        color: var(--muted);
+      }
+      .timeline-time {
+        font: 500 14px/1 var(--font-body);
+        color: var(--accent-warm);
+        margin-bottom: 4px;
+      }
 
-    /* Footer */
-    footer {
-      background: var(--fg);
-      color: var(--bg);
-      padding: 60px 0;
-      text-align: center;
-    }
-    footer p {
-      font: 14px/1.6 var(--font-body);
-      opacity: 0.7;
-    }
+      /* RSVP */
+      .rsvp {
+        background:
+          radial-gradient(
+            ellipse at 50% 100%,
+            oklch(90% 0.03 80) 0%,
+            transparent 60%
+          ),
+          var(--surface);
+      }
+      .rsvp-form {
+        max-width: 500px;
+        margin: 0 auto;
+        background: var(--bg);
+        padding: 48px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+      }
+      .form-group {
+        margin-bottom: 24px;
+      }
+      .form-group label {
+        display: block;
+        font: 500 14px/1 var(--font-body);
+        color: var(--fg);
+        margin-bottom: 8px;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 14px 18px;
+        font: 16px/1 var(--font-body);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--fg);
+        transition: border-color 0.2s;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+      .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 40px;
+        font: 600 16px/1 var(--font-body);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--surface);
+        width: 100%;
+      }
+      .btn-primary:hover {
+        background: var(--accent-warm);
+        transform: translateY(-2px);
+      }
+      .form-note {
+        font: 13px/1.5 var(--font-body);
+        color: var(--muted);
+        text-align: center;
+        margin-top: 20px;
+      }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-title { font-size: 48px; }
-      .hero-date { font-size: 20px; }
-      .story-grid { grid-template-columns: 1fr; gap: 40px; }
-      .timeline::before { left: 16px; }
-      .timeline-item { gap: 20px; }
-      .timeline-dot { width: 34px; height: 34px; font-size: 14px; }
-      .section-title { font-size: 32px; }
-      .rsvp-form { padding: 32px 24px; }
-    }
-  </style>
-</head>
-<body>
+      /* Footer */
+      footer {
+        background: var(--fg);
+        color: var(--bg);
+        padding: 60px 0;
+        text-align: center;
+      }
+      footer p {
+        font: 14px/1.6 var(--font-body);
+        opacity: 0.7;
+      }
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <p class="hero-pretitle">Мы приглашаем вас</p>
-      <h1 class="hero-title">Илья <span>&</span> Рашида</h1>
-      <p class="hero-date">10 июля 2026</p>
-      <p class="hero-venue">Усадьба Воронцово, Москва</p>
-    </div>
-    <div class="scroll-hint">scroll</div>
-  </section>
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 48px;
+        }
+        .hero-date {
+          font-size: 20px;
+        }
+        .story-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .timeline::before {
+          left: 16px;
+        }
+        .timeline-item {
+          gap: 20px;
+        }
+        .timeline-dot {
+          width: 34px;
+          height: 34px;
+          font-size: 14px;
+        }
+        .section-title {
+          font-size: 32px;
+        }
+        .rsvp-form {
+          padding: 32px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="hero-pretitle">Мы приглашаем вас</p>
+        <h1 class="hero-title">Илья <span>&</span> Рашида</h1>
+        <p class="hero-date">10 июля 2026</p>
+        <p class="hero-venue">Усадьба Воронцово, Москва</p>
+      </div>
+      <div class="scroll-hint">scroll</div>
+    </section>
 
-  <!-- Love Story -->
-  <section class="story">
-    <div class="container">
-      <h2 class="section-title">Наша история</h2>
-      <p class="section-subtitle">Как всё началось</p>
-      
-      <div class="story-grid">
-        <div class="photo-item" style="aspect-ratio: 4/5; border-radius: 8px; overflow: hidden;">
-          <img src="mpk1x85g-IMG_9346.jpg" alt="Рашида" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div class="story-text">
-          <p>Всё началось тёплым летним вечером на террасе уютной кофейни в центре Москвы. За чашкой ароматного чая и долгими разговорами об искусстве, путешествиях и жизни мы поняли, что нашли друг в друге что-то особенное.</p>
-          <p>С тех пор каждый наш день — это новая глава в истории любви. Мы путешествовали по городам, открывали для себя неизведанные уголки, поддерживали друг друга в важных решениях. И теперь пришло время написать новую главу — ту, которую мы хотим разделить с вами.</p>
+    <!-- Love Story -->
+    <section class="story">
+      <div class="container">
+        <h2 class="section-title">Наша история</h2>
+        <p class="section-subtitle">Как всё началось</p>
+
+        <div class="story-grid">
+          <div
+            class="photo-item"
+            style="aspect-ratio: 4/5; border-radius: 8px; overflow: hidden"
+          >
+            <img
+              src="mpk1x85g-IMG_9346.jpg"
+              alt="Рашида"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="story-text">
+            <p>
+              Всё началось тёплым летним вечером на террасе уютной кофейни в
+              центре Москвы. За чашкой ароматного чая и долгими разговорами об
+              искусстве, путешествиях и жизни мы поняли, что нашли друг в друге
+              что-то особенное.
+            </p>
+            <p>
+              С тех пор каждый наш день — это новая глава в истории любви. Мы
+              путешествовали по городам, открывали для себя неизведанные уголки,
+              поддерживали друг друга в важных решениях. И теперь пришло время
+              написать новую главу — ту, которую мы хотим разделить с вами.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Program -->
-  <section class="program">
-    <div class="container">
-      <h2 class="section-title">Программа дня</h2>
-      <p class="section-subtitle">Как мы проведём этот особенный день</p>
-      
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot">16:00</div>
-          <div class="timeline-content">
-            <p class="timeline-time">Сбор гостей</p>
-            <h3>Адрес: Москва, Воронцовский парк, 3</h3>
+    <!-- Program -->
+    <section class="program">
+      <div class="container">
+        <h2 class="section-title">Программа дня</h2>
+        <p class="section-subtitle">Как мы проведём этот особенный день</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">16:00</div>
+            <div class="timeline-content">
+              <p class="timeline-time">Сбор гостей</p>
+              <h3>Адрес: Москва, Воронцовский парк, 3</h3>
+            </div>
           </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-dot">16:20</div>
-          <div class="timeline-content">
-            <p class="timeline-time">Регистрация в ЗАГСе</p>
-            <h3>Адрес: Москва, Воронцовский парк, 3</h3>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">16:20</div>
+            <div class="timeline-content">
+              <p class="timeline-time">Регистрация в ЗАГСе</p>
+              <h3>Адрес: Москва, Воронцовский парк, 3</h3>
+            </div>
           </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-dot">17:00</div>
-          <div class="timeline-content">
-            <p class="timeline-time">Свадебная прогулка</p>
-            <h3>Адрес: Москва, Воронцовский парк, 3</h3>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">17:00</div>
+            <div class="timeline-content">
+              <p class="timeline-time">Свадебная прогулка</p>
+              <h3>Адрес: Москва, Воронцовский парк, 3</h3>
+            </div>
           </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-dot">18:00</div>
-          <div class="timeline-content">
-            <p class="timeline-time">Свадебный ужин</p>
-            <h3>Адрес: Москва, ул. Архитектора Власова, 47</h3>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">18:00</div>
+            <div class="timeline-content">
+              <p class="timeline-time">Свадебный ужин</p>
+              <h3>Адрес: Москва, ул. Архитектора Власова, 47</h3>
+            </div>
           </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-dot">20:00</div>
-          <div class="timeline-content">
-            <p class="timeline-time">Окончание вечера</p>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">20:00</div>
+            <div class="timeline-content">
+              <p class="timeline-time">Окончание вечера</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- RSVP -->
-  <section class="rsvp" id="rsvp">
-    <div class="container">
-      <h2 class="section-title">Подтверждение присутствия</h2>
-      <p class="section-subtitle">Просим ответить до 1 июля 2026</p>
-      
-      <form class="rsvp-form" onsubmit="handleRsvp(event)">
-        <div class="form-group">
-          <label for="name">Ваше имя</label>
-          <input type="text" id="name" name="name" required placeholder="Иван Иванов">
-        </div>
-        
-        <div class="form-group">
-          <label for="attendance">Вы придёте?</label>
-          <select id="attendance" name="attendance" required>
-            <option value="">Выберите вариант</option>
-            <option value="yes">Да, буду</option>
-            <option value="no">К сожалению, не смогу</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="guests">Количество гостей</label>
-          <select id="guests" name="guests" required>
-            <option value="">Выберите количество</option>
-            <option value="1">1 гость</option>
-            <option value="2">2 гостя</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="drink">Предпочтения по напиткам</label>
-          <select id="drink" name="drink" required>
-            <option value="">Выберите вариант</option>
-            <option value="champagne">Шампанское</option>
-            <option value="white_wine">Белое вино</option>
-            <option value="none">Не буду пить алкоголь</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="wishes">Пожелания или вопросы</label>
-          <textarea id="wishes" name="wishes" placeholder="Ваши пожелания или вопросы..."></textarea>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Отправить</button>
-        
-        <p class="form-note">Пожалуйста, не приносите букеты и срезанные цветы. Цветы в горшках подойдут, но можно и вообще без цветов.</p>
-      </form>
-    </div>
-  </section>
+    <!-- RSVP -->
+    <section class="rsvp" id="rsvp">
+      <div class="container">
+        <h2 class="section-title">Подтверждение присутствия</h2>
+        <p class="section-subtitle">Просим ответить до 1 июля 2026</p>
 
-  <footer>
-    <div class="hearts">♥</div>
-    <p>До скорой встречи!</p>
-  </footer>
+        <form class="rsvp-form" onsubmit="handleRsvp(event)">
+          <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Иван Иванов"
+            />
+          </div>
 
-  <script>
-    function handleRsvp(e) {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      const data = Object.fromEntries(formData);
-      
-      const subject = encodeURIComponent('RSVP: ' + data.name);
-      const body = encodeURIComponent(
-        'Имя: ' + data.name + '\n' +
-        'Присутствие: ' + (data.attendance === 'yes' ? 'Да' : 'Нет') + '\n' +
-        'Гостей: ' + data.guests + '\n' +
-        'Напитки: ' + (data.drink === 'champagne' ? 'Шампанское' : data.drink === 'white_wine' ? 'Белое вино' : 'Без алкоголя') + '\n' +
-        'Пожелания: ' + (data.wishes || '—')
-      );
-      
-      window.location.href = 'mailto:ilya.rashida.wedding2026@mail.ru?subject=' + subject + '&body=' + body;
-      alert('Спасибо! Форма отправлена на email.');
-    }
-  </script>
-</body>
+          <div class="form-group">
+            <label for="attendance">Вы придёте?</label>
+            <select id="attendance" name="attendance" required>
+              <option value="">Выберите вариант</option>
+              <option value="yes">Да, буду</option>
+              <option value="no">К сожалению, не смогу</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="guests">Количество гостей</label>
+            <select id="guests" name="guests" required>
+              <option value="">Выберите количество</option>
+              <option value="1">1 гость</option>
+              <option value="2">2 гостя</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="drink">Предпочтения по напиткам</label>
+            <select id="drink" name="drink" required>
+              <option value="">Выберите вариант</option>
+              <option value="champagne">Шампанское</option>
+              <option value="white_wine">Белое вино</option>
+              <option value="none">Не буду пить алкоголь</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="wishes">Пожелания или вопросы</label>
+            <textarea
+              id="wishes"
+              name="wishes"
+              placeholder="Ваши пожелания или вопросы..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Отправить</button>
+
+          <p class="form-note">
+            Пожалуйста, не приносите букеты и срезанные цветы. Цветы в горшках
+            подойдут, но можно и вообще без цветов.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="hearts">♥</div>
+      <p>До скорой встречи!</p>
+    </footer>
+
+    <script>
+      function handleRsvp(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+
+        const subject = encodeURIComponent("RSVP: " + data.name);
+        const body = encodeURIComponent(
+          "Имя: " +
+            data.name +
+            "\n" +
+            "Присутствие: " +
+            (data.attendance === "yes" ? "Да" : "Нет") +
+            "\n" +
+            "Гостей: " +
+            data.guests +
+            "\n" +
+            "Напитки: " +
+            (data.drink === "champagne"
+              ? "Шампанское"
+              : data.drink === "white_wine"
+                ? "Белое вино"
+                : "Без алкоголя") +
+            "\n" +
+            "Пожелания: " +
+            (data.wishes || "—"),
+        );
+
+        window.location.href =
+          "mailto:khamidullinarr96@gmail.com?subject=" +
+          subject +
+          "&body=" +
+          body;
+        alert("Спасибо! Форма отправлена на email.");
+      }
+    </script>
+  </body>
 </html>
