@@ -557,4 +557,24 @@
       }
     </script>
   </body>
+  <script>
+    function handleRsvp(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+      
+      const subject = encodeURIComponent('RSVP: ' + data.name);
+      const body = encodeURIComponent(
+        'Имя: ' + data.name + '\n' +
+        'Присутствие: ' + (data.attendance === 'yes' ? 'Да' : 'Нет') + '\n' +
+        'Гостей: ' + data.guests + '\n' +
+        'Напитки: ' + (data.drink === 'champagne' ? 'Шампанское' : data.drink === 'white_wine' ? 'Белое вино' : 'Без алкоголя') + '\n' +
+        'Пожелания: ' + (data.wishes || '—')
+      );
+      
+      window.location.href = 'mailto:ilya.rashida.wedding2026@mail.ru?subject=' + subject + '&body=' + body;
+      alert('Спасибо! Форма отправлена на email.');
+    }
+  </script>
+</body>
 </html>
