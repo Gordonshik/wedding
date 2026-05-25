@@ -140,6 +140,9 @@
     .story {
       background: var(--surface);
     }
+    #time-since {
+      font-size: 18px;
+    }
     .story-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -302,9 +305,9 @@
           <img src="IMG_9346.jpg" alt="Рашида" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="story-text">
-          <p>Всё началось тёплым осенним вечером в парке Сокольники целых 3,5 года назад.
+          <p>Всё началось тёплым осенним вечером в парке Сокольники <span id="time-since" data-start="2022-10-01T19:30:00"></span> назад.
           С тех пор каждый наш день — это новые открытия, шутки и радости.
-          И теперь пришло время написать новую главу...</p>
+          И теперь пришло время написать нашу новую главу...</p>
           <p id="guest-greeting"></p>
         </div>
       </div>
@@ -403,7 +406,25 @@
       var greeting = gender === 'f' ? 'Дорогая' : 'Дорогой';
       el.innerHTML = greeting + ' ' + guest1 + ', мы хотим пригласить вас на нашу свадьбу, которая состоится 10 июля 2026 года в восточном флигеле усадьбы Воронцово.<br>Будем счастливы разделить с вами такой значимый для нас день — день рождения нашей семьи.';
     } else if (el) {
-      el.innerHTML = 'С тех пор каждый наш день — это новая глава в истории любви. Мы путешествовали по городам, открывали для себя неизведанные уголки, поддерживали друг друга в важных решениях. И теперь пришло время написать новую главу — ту, которую мы хотим разделить с вами.';
+      el.innerHTML = 'С тех пор каждый наш день — это новая глава в истории любви. Мы путешествовали по городам, открывали для себя неизведанные уголки, поддерживали друг друга в важных решениях. И теперь пришло время написать нашу новую главу — ту, которую мы хотим разделить с вами.';
+    }
+
+    var timeEl = document.getElementById('time-since');
+    if (timeEl) {
+      var startDate = new Date(timeEl.getAttribute('data-start'));
+      function updateTime() {
+        var diff = Math.floor((Date.now() - startDate) / 1000);
+        var days = Math.floor(diff / 86400);
+        var hours = Math.floor((diff % 86400) / 3600);
+        var minutes = Math.floor((diff % 3600) / 60);
+        var seconds = diff % 60;
+        timeEl.innerHTML = '<b>' + String(days) + ' дня, ' +
+          String(hours).padStart(2, '0') + ' ч. ' +
+          String(minutes).padStart(2, '0') + ' мин. ' +
+          String(seconds).padStart(2, '0') + ' сек.</b>';
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
     }
   })();
 </script>
