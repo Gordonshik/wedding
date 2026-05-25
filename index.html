@@ -283,7 +283,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <img class="hero-bg" src="IMG_5554.gif" alt="Wedding background">
+    <img class="hero-bg" src="IMG_9302.jpg" alt="Wedding background">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-pretitle">Мы приглашаем вас</p>
@@ -363,7 +363,7 @@
   <section class="rsvp" id="rsvp">
     <div class="container">
       <h2 class="section-title">Подтверждение присутствия</h2>
-      <p class="section-subtitle">Просим ответить до 29 июня 2026</p>
+      <p class="section-subtitle">Просим ответить до 29 май 2026</p>
       
       <div class="rsvp-content">
         <p class="rsvp-note">Для подготовки к торжеству мы просим вас заполнить анкету</p>
@@ -391,9 +391,12 @@
     var guest2 = params.get('guest2');
     var el = document.getElementById('guest-greeting');
 
+    var guest3 = params.get('guest3');
     var gender = params.get('gender');
 
-    if (guest1 && guest2 && el) {
+    if (guest1 && guest2 && guest3 && el) {
+      el.textContent = 'Дорогие ' + guest1 + ', ' + guest2 + ' и ' + guest3 + ', в этот замечательный день хотим пригласить вас на наш праздник.';
+    } else if (guest1 && guest2 && el) {
       el.textContent = 'Дорогие ' + guest1 + ' и ' + guest2 + ', в этот замечательный день хотим пригласить вас на наш праздник.';
     } else if (guest1 && el) {
       var greeting = gender === 'f' ? 'Дорогая' : 'Дорогой';
