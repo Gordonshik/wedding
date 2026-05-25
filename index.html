@@ -385,16 +385,12 @@
           </div>
           <div class="story-text">
             <p>
-              Всё началось тёплым летним вечером на террасе уютной кофейни в
-              центре Москвы. За чашкой ароматного чая и долгими разговорами об
-              искусстве, путешествиях и жизни мы поняли, что нашли друг в друге
-              что-то особенное.
-            </p>
-            <p>
-              С тех пор каждый наш день — это новая глава в истории любви. Мы
-              путешествовали по городам, открывали для себя неизведанные уголки,
-              поддерживали друг друга в важных решениях. И теперь пришло время
-              написать новую главу — ту, которую мы хотим разделить с вами.
+              Всё началось тёплым осенним вечером в парке Сокольники целых 3,5 года назад.
+              С тех пор каждый наш день — это новые открытия, шутки и радости. 
+              Мы проводили много времени вместе, путешествуя и поддерживая друг друга.  
+              <p>
+              И теперь пришло время написать новую главу — ту,будем счастливы раздилить с вами.
+              Мы будем рады видеть вас в такой значимый для нас день - день рождение нашей семьи.
             </p>
           </div>
         </div>
@@ -416,7 +412,6 @@
             </div>
           </div>
 
-<<<<<<< HEAD:wedding-landing-3.html
           <div class="timeline-item">
             <div class="timeline-dot">16:20</div>
             <div class="timeline-content">
@@ -557,27 +552,5 @@
         alert("Спасибо! Форма отправлена на email.");
       }
     </script>
-  </body>
-=======
-  <script>
-    function handleRsvp(e) {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      const data = Object.fromEntries(formData);
-      
-      const subject = encodeURIComponent('RSVP: ' + data.name);
-      const body = encodeURIComponent(
-        'Имя: ' + data.name + '\n' +
-        'Присутствие: ' + (data.attendance === 'yes' ? 'Да' : 'Нет') + '\n' +
-        'Гостей: ' + data.guests + '\n' +
-        'Напитки: ' + (data.drink === 'champagne' ? 'Шампанское' : data.drink === 'white_wine' ? 'Белое вино' : 'Без алкоголя') + '\n' +
-        'Пожелания: ' + (data.wishes || '—')
-      );
-      
-      window.location.href = 'mailto:ilya.rashida.wedding2026@mail.ru?subject=' + subject + '&body=' + body;
-      alert('Спасибо! Форма отправлена на email.');
-    }
-  </script>
 </body>
->>>>>>> 9f12f9f2dc8189115a2dad59c3af7ef13bb80ce7:index.html
 </html>
